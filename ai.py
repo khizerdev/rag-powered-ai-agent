@@ -20,14 +20,15 @@ def extract_todos(text: str) -> list:
 
     prompt = f"""Extract todos from this text and return a JSON array.
 Each todo must have: task, priority (high/medium/low), due_date (or empty string).
+Write the task as a short but clear action phrase (5-8 words when possible).
 Return ONLY the JSON array, no explanation.
 
 Text: {text}
 
 Example output:
 [
-  {{"task": "Call supplier", "priority": "high", "due_date": "tomorrow"}},
-  {{"task": "Order food", "priority": "medium", "due_date": ""}}
+  {{"task": "Call supplier about new stock", "priority": "high", "due_date": "tomorrow"}},
+  {{"task": "Order food for the week", "priority": "medium", "due_date": ""}}
 ]"""
 
     response = client.chat.completions.create(

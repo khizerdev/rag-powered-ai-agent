@@ -51,7 +51,7 @@ def search_todos(query: str, n_results: int = 3, min_score: float = 0.3):
     # Filter: distance < 1.5 is a reasonable relevance threshold
     filtered = [
         doc for doc, dist in zip(documents, distances)
-        if dist < 1.5
+        if dist < 1.9
     ]
     
     return filtered
